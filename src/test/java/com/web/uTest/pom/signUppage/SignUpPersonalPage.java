@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class SignUpPersonalPage extends AbstractBasePage {
     private WebElement btn_Month;
 
     //Locator for Month list
-    @FindBy(xpath = "//*[@role='option']//child::div")
+    @FindBy(xpath = "//*[@id='birthMonth']//child::option[@label]")
     private List<WebElement> droplist_Month;
 
     //Locator for Date btn
@@ -51,7 +52,7 @@ public class SignUpPersonalPage extends AbstractBasePage {
     private WebElement btn_Date;
 
     //Locator for Date list
-    @FindBy(xpath = "//*[@role='option']//child::div")
+    @FindBy(xpath = "//*[@id='birthDay']//child::option[@label]")
     private List<WebElement> droplist_Date;
 
     //Locator for Year btn
@@ -59,7 +60,7 @@ public class SignUpPersonalPage extends AbstractBasePage {
     private WebElement btn_Year;
 
     //Locator for Date list
-    @FindBy(xpath = "//*[@role='option']//child::div")
+    @FindBy(xpath = "//*[@id='birthYear']//child::option[@label]")
     private List<WebElement> droplist_Year;
 
     //Locator for Language box
@@ -113,7 +114,6 @@ public class SignUpPersonalPage extends AbstractBasePage {
         indexMonth = getIndex(droplist_Month, month);
          clickButton(droplist_Month.get(indexMonth));
         System.out.println(indexMonth);
-
     }
 
     //Click on Date
@@ -166,6 +166,27 @@ public class SignUpPersonalPage extends AbstractBasePage {
             }
         }
         return index;
+    }
+
+    //Apply selection for Month
+    public void selectMonthUsingSelection (String month){
+        Select selectMonth = new Select(btn_Month);
+        waitForElementToBeClickable(btn_Month);
+        selectMonth.selectByVisibleText(month);
+    }
+
+    //Apply selection for Date
+    public void selectDateUsingSelection (String date){
+        Select selectDate = new Select(btn_Date);
+        waitForElementToBeClickable(btn_Date);
+        selectDate.selectByVisibleText(date);
+    }
+
+    //Apply selection for Year
+    public void selectYearUsingSelection (String year){
+        Select selectYear = new Select(btn_Year);
+        waitForElementToBeClickable(btn_Year);
+        selectYear.selectByVisibleText(year);
     }
 
 }

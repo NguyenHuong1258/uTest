@@ -3,7 +3,7 @@
 <suite name="Amazon" >
 
     <listeners>
-        <listener class-name="com.utilities.reports.testngListener"/>
+        <listener class-name="com.utilities.reports.extentReport.testngListener"/>
     </listeners>
 
     <test name="Run_uTest">

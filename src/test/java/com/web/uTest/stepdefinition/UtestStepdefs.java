@@ -25,7 +25,7 @@ public class UtestStepdefs {
 
     //Declare constructor
     public UtestStepdefs() {
-        driver = Hooks.driver;
+        driver = Hooks_Utest.driver;
         pageObjectManager = new PageObjectManager(driver);
         signUpPerPage = pageObjectManager.getSignUpPerPage();
         signUpAddrPage = pageObjectManager.getSignUpAddressPage();
@@ -36,10 +36,6 @@ public class UtestStepdefs {
         driver.navigate().to("https://www.utest.com/signup/personal");
     }
 
-//    @When("User inputs \"([^\"]*)\"$\" in Email field")
-//    public void userInputsInEmailField(String email) {
-//        signUpPerPage.inputEmail(email);
-//    }
 
     @Then("the error invalid email should be displayed")
     public void theErrorInvalidEmailShouldBeDisplayed() {
@@ -67,20 +63,30 @@ public class UtestStepdefs {
 
     @And("User selects Date of birth with Month as {string}")
     public void userSelectsDateOfBirthWithMonthAs(String month) {
-        signUpPerPage.clickMonth();
-        signUpPerPage.selectMonth(month);
+//        signUpPerPage.clickMonth();
+//        signUpPerPage.selectMonth(month);
+
+        //Apply Select month
+        signUpPerPage.selectMonthUsingSelection(month);
+
     }
 
     @And("User selects Date of birth with Date as {string}")
     public void userSelectsDateOfBirthWithDateAs(String date) {
-        signUpPerPage.clickDate();
-        signUpPerPage.selectDate(date);
+//        signUpPerPage.clickDate();
+//        signUpPerPage.selectDate(date);
+
+        //Apply selection Date
+        signUpPerPage.selectDateUsingSelection(date);
     }
 
     @And("User selects Date of birth with Year as {string}")
     public void userSelectsDateOfBirthWithYearAs(String year) {
-        signUpPerPage.clickYear();
-        signUpPerPage.selectYear(year);
+//        signUpPerPage.clickYear();
+//        signUpPerPage.selectYear(year);
+
+        //Apply selection Year
+        signUpPerPage.selectYearUsingSelection(year);
     }
 
     @And("User selects Language as {string}")

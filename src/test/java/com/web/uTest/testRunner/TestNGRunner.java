@@ -14,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
                 "json:target/cucumber/cucumber-json-report.json",
                 "junit:target/cucumber/cucumber-xml-report.xml"},
         monochrome = true,
-       // tags = " @SignUpValid",
+        tags = " @SignUpValid",
         features = {"src\\test\\java\\com\\web\\uTest\\features"},
         glue = {"com.web.uTest.stepdefinition"}
 )
